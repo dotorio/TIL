@@ -14,4 +14,5 @@ information[authors[2]] = books[4]
 information[authors[3]] = books[0]
 information[authors[4]] = books[2]
 
-print(information)
+for key, value in information.items():
+    print(key, value)
