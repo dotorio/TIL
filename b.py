@@ -12,7 +12,7 @@ for x in range(c):
                     b[y] = 0
     else:
         for y in range(a):
-            for f in range(100):
+            for f in range(a):
                 if e-f == -1 or e+f == a:
                     break
                 if b[e-f-1] == b[e+f-1]:
