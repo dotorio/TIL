@@ -13,8 +13,16 @@ for x in range(c):
     else:
         for y in range(a):
             for f in range(100):
-                while b[y-f] != b[y+f]:
-                    if 
+                if e-f == -1 or e+f == a:
+                    break
+                if b[e-f-1] == b[e+f-1]:
+                    
+                    if b[e-f-1] == 1:
+                        b[e-f-1] = 0
+                        b[e+f-1] = 0
+                    else:
+                        b[e-f-1] = 1
+                        b[e+f-1] = 1
             
 
 print(b)
