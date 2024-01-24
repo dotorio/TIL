@@ -1,29 +1,33 @@
-a = int(input())
-b = list(map(int, input().split()))
-c = int(input())
-for x in range(c):
-    d, e = map(int, input().split())
-    if d == 1:
-        for y in range(a):
-            if (y+1) % e == 0:
-                if b[y] == 0:
-                    b[y] = 1
+number_of_buttons = int(input())
+buttons = list(map(int, input().split()))
+number_of_person  = int(input())
+for person in range(number_of_person):
+    gender, start = map(int, input().split())
+    if gender == 1:
+        for x in range(number_of_buttons):
+            if (x+1) % start == 0:
+                if buttons[x] == 0:
+                    buttons[x] = 1
                 else:
-                    b[y] = 0
+                    buttons[x] = 0
     else:
-        for y in range(a):
-            for f in range(a):
-                if e-f == -1 or e+f == a:
-                    break
-                if b[e-f-1] == b[e+f-1]:
-                    
-                    if b[e-f-1] == 1:
-                        b[e-f-1] = 0
-                        b[e+f-1] = 0
-                    else:
-                        b[e-f-1] = 1
-                        b[e+f-1] = 1
-            
 
-print(b)
+        for y in range(number_of_buttons):
+            if start-y == 0 or start+y == number_of_buttons+1:
+                break
+            if buttons[start-y-1] == buttons[start+y-1]:
+                        
+                if buttons[start-y-1] == 1:
+                    buttons[start-y-1] = 0
+                    buttons[start+y-1] = 0
+                else:
+                    buttons[start-y-1] = 1
+                    buttons[start+y-1] = 1
+            else:
+                break
+        
+
+for z in range(0, len(buttons), 20):
+        
+    print(' '.join(map(str, buttons[z:z+20])))
 
