@@ -34,5 +34,5 @@ for a in range(1, 11):
         max_sum = new_sum3
     # 두 대각선의 합을 구해 최댓값이 새롭게 나온다면
     # max_sum에 할당
-    print(f'#{a} {max_sum}')
+    print(f'#{case} {max_sum}')
     # 최댓값을 출력한다.
