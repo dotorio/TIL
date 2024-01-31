@@ -10,7 +10,7 @@ for case in range(1, T + 1):
         k = i
         for j in range(N):
             if 0 <= k-1 and arr[k-1][j] == 1:
-                break
+                continue
             word_length = 0
             while k <= N - 1 and arr[k][j] == 1:
                 word_length += 1
@@ -22,7 +22,7 @@ for case in range(1, T + 1):
         k = i
         for j in range(N):
             if 0 <= k-1 and arr[j][k-1] == 1:
-                break
+                continue
             word_length = 0
             while k <= N - 1 and arr[j][k] == 1:
                 word_length += 1
