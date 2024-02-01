@@ -18,8 +18,7 @@ for _ in range(4):
     for i in range(new_y3, new_y4):
         for j in range(new_x3, new_x4):
             sum_area[i][j] += 1
-    for i in sum_area:
-        if i.count(2) != 0:
+        if sum_area[i][j] == 2:
             print('a')
             break
     else:
@@ -39,6 +38,6 @@ for _ in range(4):
                 break
         if count_2 == 0:
             print('d')
-        else:
+        elif count_2 == 1:
             print('c')
 
