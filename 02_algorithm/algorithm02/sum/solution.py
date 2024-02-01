@@ -12,26 +12,26 @@ for a in range(1, 11):
     # 100 * 100 배열을 input값을 받아 만든다. 
     max_sum = 0
     # 최댓값을 0으로 설정해둔다.
+    diagonal_sum = 0
+    diagonal_sum2 = 0
+    # 두 대각선의 합을 0으로 설정해둔다.
     for x in range(100):
         if max_sum < sum(arr[x]):
             max_sum = sum(arr[x])
         # 각 행의 합 중에 최댓값을 max_sum에 할당
-        new_sum = 0
+        row_sum = 0
         for y in range(100):
-            new_sum += arr[y][x]
-        if max_sum < new_sum:
-            max_sum = new_sum
+            row_sum += arr[y][x]
+        if max_sum < row_sum:
+            max_sum = row_sum
     # 각 열의 합 중에 최댓값이 새롭게 나온다면
     # max_sum에 할당
-    new_sum2 = 0
-    new_sum3 = 0
-    for x in range(100):
-        new_sum2 += arr[x][x]
-        new_sum3 += arr[x][99 - x]
-    if max_sum < new_sum2:
-        max_sum = new_sum2
-    if max_sum < new_sum3:
-        max_sum = new_sum3
+        diagonal_sum += arr[x][x]
+        diagonal_sum2 += arr[x][99 - x]        
+    if max_sum < diagonal_sum:
+        max_sum = diagonal_sum
+    if max_sum < diagonal_sum2:
+        max_sum = diagonal_sum2
     # 두 대각선의 합을 구해 최댓값이 새롭게 나온다면
     # max_sum에 할당
     print(f'#{case} {max_sum}')
