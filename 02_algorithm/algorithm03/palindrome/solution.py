@@ -16,4 +16,6 @@ for case in range(1, T+1):
             word = i[j:j+M]
             if "".join(map(str,word)) == "".join(map(str,word[::-1])):
                 print(f'#{case} {"".join(map(str,word))}')
+
+
                 
