@@ -1,9 +1,10 @@
 import sys
+from collections import deque
 sys.stdin = open('input.txt')
 input = sys.stdin.readline
 
 N = int(input())
-queue = []
+queue = deque()
 for _ in range(N):
     com = list(input().split())
     if com[0] == 'push':
@@ -12,7 +13,7 @@ for _ in range(N):
         if len(queue) == 0:
             print(-1)
         else:
-            print(queue.pop(0))
+            print(queue.popleft())
     elif com[0] == 'size':
         print(len(queue))
     elif com[0] == 'empty':
