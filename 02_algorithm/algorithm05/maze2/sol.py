@@ -6,10 +6,10 @@ dy = [0, 0, -1, 1]
 
 for _ in range(10):
     tc = int(input())
-    maze = [list(map(int, input())) for _ in range(16)]
-    visited = [[0] * 16 for _ in range(16)]
+    maze = [list(map(int, input())) for _ in range(100)]
+    visited = [[0] * 100 for _ in range(100)]
     stack = []
-    for x in range(16):
+    for x in range(100):
         if 2 in maze[x]:
             start_x = x
             start_y = maze[x].index(2)
