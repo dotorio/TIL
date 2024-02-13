@@ -23,6 +23,3 @@ for i in formula:
                 stack.append(i)
 while stack:
     print(stack.pop(), end='')
-
-
-        
