@@ -1,39 +1,45 @@
 import sys
-from collections import deque
 sys.stdin = open('input.txt')
+
+from collections import deque
 
 T = int(input())
 for _ in range(T):
-    p = input()
+    cmd = input()
     n = int(input())
     nums = input()
-    if nums == '[]':
-        arr = deque()
-    else:
-        arr = deque(map(int, nums[1:-1].split(',')))
-    result = True
+    cut = deque(nums[1:len(nums)-1].split(','))
+    if cut[0] == "":
+        cut = deque()
     i = 0
-    while i < len(p):
-        if p[i] == 'R':
-            if i+1 < len(p) and p[i+1] == 'R':
-                i += 2
+    rev = False
+    result = True
+    while i < len(cmd):
+        if i < len(cmd)-1 and cmd[i:i+2] == 'RR':
+            i += 2
+        elif cmd[i] == 'R':
+            i += 1
+            if rev == False:
+                rev = True
             else:
-                arr.reverse()
-                i += 1
-        elif p[i] == 'D':
-            if len(arr) == 0:
-                print('error')
+                rev = False
+        else:
+            if len(cut) == 0:
                 result = False
+                print('error')
                 break
+            i += 1
+            if rev == True:
+                cut.pop()
             else:
-                arr.popleft()
-                i += 1
+                cut.popleft()
+    if rev == True:
+        cut.reverse()
     if result == True:
-        print('[', end = '')
-        for i in arr:
-            if i == arr[-1]:
-                print(f'{i}]')
-            else:
-                print(str(i)+',', end = '')
+        print(f'[{",".join(list(cut))}]')
+# a= deque([1,2,3])
+# print(f'[{",".join(list(a))}]')
 
-
+# nums = input()
+# cut = deque(nums[1:len(nums)-1].split(','))
+# print(cut)
