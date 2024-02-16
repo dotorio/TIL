@@ -33,7 +33,7 @@ def f(arr, A, B, C, D):
                             arr[x][y] = ' '
                 else:
                     f(arr, A+(B-A)//3*i, A+(B-A)//3*(i+1), C+(D-C)//3*j, C+(D-C)//3*(j+1))
-        return arr
+        
 
 f(arr, 0, N, 0, N)
 for i in arr:
