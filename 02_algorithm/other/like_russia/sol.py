@@ -21,6 +21,5 @@ for tc in range(1, T+1):
                 for j in range(M):
                     if flag[c3][j] != 'R':
                         cnt += 1
-            if min_cnt > cnt:
-                min_cnt = cnt
+            min_cnt = min(min_cnt, cnt)
     print(f'#{tc} {min_cnt}')
