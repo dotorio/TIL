@@ -1,31 +1,28 @@
 import sys
 sys.stdin = open('input.txt')
-from queue import PriorityQueue
 
-T = int(input())
-for _ in range(T):
-    k = int(input())
-    que1 = PriorityQueue()
-    que2 = PriorityQueue()
+import heapq
+
+for T in range(int(input())):
+    heap1 = []
+    heap2 = []
     cnt = 0
-    for _ in range(k):
+    for k in range(int(input())):
         A, B = input().split()
         if A == 'I':
+            heapq.heappush(heap1, int(B))
+            heapq.heappush(heap2, -int(B))
             cnt += 1
-            que1.put(int(B))
-            que2.put(-(int(B)))
         else:
             if cnt == 0:
                 continue
             if B == '1':
+                heapq.heappop(heap2)
                 cnt -= 1
-                que2.get()
             else:
+                heapq.heappop(heap1)
                 cnt -= 1
-                que1.get()
-            
     if cnt == 0:
         print('EMPTY')
     else:
-        print(-(que2.get()), que1.get())
-
+        print(-(heapq.heappop(heap2)), heapq.heappop(heap1))
