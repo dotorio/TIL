@@ -1,24 +1,18 @@
 import sys
 sys.stdin = open('input1.txt')
 
-T = int(input())
-for i in range(T):
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+
+for tc in range(int(input())):
     N, M = map(int, input().split())
-    arr = [[0 for j in range(M)] for i in range(N)]
-    for i2 in range(N):
-        arr[i2] = list(map(int, input().split()))
-    sum_list = []
-    for y in range(N):
-        for x in range(M):
-            sum_flower = 0
-            sum_flower += arr[y][x]
-            if 0 <= x-1 < M:
-                sum_flower += arr[y][x-1]
-            if 0 <= x+1 < M:
-                sum_flower += arr[y][x+1]
-            if 0 <= y-1 < N:
-                sum_flower += arr[y-1][x]
-            if 0 <= y+1 < N:
-                sum_flower += arr[y+1][x]
-            sum_list.append(sum_flower)
-    print(f'#{i+1} {max(sum_list)}')
+    arr = [list(map(int, input().split())) for _ in range(N)]
+    max_sum = 0
+    for i in range(N):
+        for j in range(M):
+            sum = arr[i][j]
+            for k in range(4):
+                if 0 <= i+dx[k] < N and 0 <= j+dy[k] < M:
+                    sum += arr[i+dx[k]][j+dy[k]]
+            max_sum = max(max_sum, sum)
+    print(f'#{tc+1} {max_sum}')

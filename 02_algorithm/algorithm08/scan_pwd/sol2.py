@@ -47,11 +47,12 @@ for tc in range(1, int(input())+1):
                     last_x += 1
                 pwd, sum = 0, 0
                 for k in range(8):
+                    one_pwd = dec.index(real_pwd[7*k*ratio : 7*(k+1)*ratio : ratio])
                     if k % 2 == 0:
-                        pwd += dec.index(real_pwd[7*k*ratio : 7*(k+1)*ratio : ratio]) * 3
+                        pwd += one_pwd * 3
                     else:
-                        pwd += dec.index(real_pwd[7*k*ratio : 7*(k+1)*ratio : ratio])
-                    sum += dec.index(real_pwd[7*k*ratio : 7*(k+1)*ratio : ratio])
+                        pwd += one_pwd
+                    sum += one_pwd
                 if pwd % 10 == 0:
                     answer_sum += sum
     print(f'#{tc} {answer_sum}')
