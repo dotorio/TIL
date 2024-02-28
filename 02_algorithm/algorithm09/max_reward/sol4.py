@@ -1,25 +1,30 @@
 import sys
 sys.stdin = open('input.txt')
 
+def change(a, b):
+    global change_dict
+    if b == change_cnt:
+        return
+    for i in range(len_num):
+        for j in range(len_num):
+            if i == j:
+                continue
+            a[i], a[j] = a[j], a[i]
+            if a in change_dict[b+1]:
+                a[i], a[j] = a[j], a[i]
+                continue
+            new = a[:]
+            change_dict[b+1].append(new)
+            change(new, b+1)
+            a[i], a[j] = a[j], a[i]
+
 for tc in range(1, int(input())+1):
     num, ch = input().split()
     change_cnt = int(ch)
+    change_dict = {}
+    for i in range(1, change_cnt+1):
+        change_dict[i] = []
     num_list = list(num)
     len_num = len(num_list)
-    if_max = num_list[:]
-    if_max.sort(reverse=True)
-    for _ in range(change_cnt):
-        if num_list == if_max:
-            num_list[-2], num_list[-1] = num_list[-1], num_list[-2]
-        else:
-            change_list = []            
-            for i in range(len_num):
-                for j in range(len_num):
-                    if i == j:
-                        continue
-                    else:
-                        new = num_list[:]
-                        new[i], new[j] = new[j], new[i]
-                        change_list.append(new)
-            num_list = max(change_list)
-    print(f'#{tc} {"".join(num_list)}')
+    change(num_list, 0)
+    print(f'#{tc} {"".join(max(change_dict[change_cnt]))}')
