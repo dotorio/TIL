@@ -1,0 +1,5 @@
+vim ~/.gitconfig
+insert 키 입력 -> 전부 삭제 -> esc -> :wq
+git config --global user.email 이메일주소
+git config --global user.name 자기이름
+git config --global --list    # 확인
