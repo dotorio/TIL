@@ -5,10 +5,8 @@ def change(a, b):
     global change_dict
     if b == change_cnt:
         return
-    for i in range(len_num):
-        for j in range(len_num):
-            if i == j:
-                continue
+    for i in range(len_num-1):
+        for j in range(i+1, len_num):
             a[i], a[j] = a[j], a[i]
             if a in change_dict[b+1]:
                 a[i], a[j] = a[j], a[i]
