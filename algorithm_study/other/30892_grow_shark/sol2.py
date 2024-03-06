@@ -1,6 +1,5 @@
 import sys
 sys.stdin = open('input.txt')
-from collections import deque
 input = sys.stdin.readline
 N, K, T = map(int, input().split())
 shark = sorted(list(map(int, input().split())), reverse=True)
