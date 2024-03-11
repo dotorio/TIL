@@ -58,7 +58,7 @@ while continue_game:
             if strikes == int(game_num):
                 print("축하합니다! 컴퓨터에게 승리했습니다!")
                 while True:
-                    if_continue = input('다시 도전하시겠습니까? y/n : ')
+                    if_continue = input('다시 시작하시겠습니까? y/n : ')
                     if if_continue == 'n':
                         continue_game = False
                         print('게임을 종료합니다. 다음에 또 봐요!')
@@ -66,7 +66,7 @@ while continue_game:
                     elif if_continue == 'y':
                         break
                     else:
-                        print("다시 도전하려면 y, 종료하려면 n을 입력하세요.")           
+                        print("다시 시작하려면 y, 종료하려면 n을 입력하세요.")           
                 break
             elif strikes and balls:
                 print(strikes, '스트라이크', balls, '볼') 
