@@ -1,0 +1,9 @@
+{% extends "articles/base.html" %}
+
+{% block content %}
+{% comment %} <form action="http://127.0.0.1:8000/catch/" method="GET"> {% endcomment %}
+<form action="/catch/" method="GET">
+  <input type="text" name="message">
+  <input type="submit">
+</form>
+{% endblock content %}
