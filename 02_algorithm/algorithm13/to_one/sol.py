@@ -21,8 +21,11 @@ for tc in range(1, int(input())+1):
         if visit[island]:
             continue
         visit[island] = True
-        sum_tunnel += tunnel           
+        sum_tunnel += tunnel
+        if False not in visit:
+            print(f'#{tc} {(sum_tunnel*E):.0f}')
+            break
         for to in range(N):
             if not visit[to] and loc[island][to]:
                 heappush(pq, (loc[island][to] ,to))
-    print(f'#{tc} {(sum_tunnel*E):.1f}')
+    
