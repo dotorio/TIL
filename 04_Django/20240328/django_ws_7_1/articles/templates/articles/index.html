@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>나만의 SNS 서비스</h1>
+  <p>[<a href="{% url "articles:create" %}">CREATE</a>]</p>
+  {% for page in articles %}
+    {% if page.image %}
+      <img src="{{ page.image.url }}" alt="img">
+    {% endif %}
+    <a href="{% url "articles:detail" page.pk %}"><p>{{ page.title }}</p></a>
+    <hr>
+  {% endfor %}
+{% endblock content %}
