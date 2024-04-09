@@ -1,3 +1,5 @@
+from collections import deque
+
 def f(num, cnt, stack):
     global min_cnt
     if num == K:
@@ -19,7 +21,8 @@ def f(num, cnt, stack):
 
 N, K = map(int, input().split())
 min_cnt = 100000
-stack = [N]
-answer = f(N, 0, stack)
+queue = deque()
+queue.append(())
+
 print(min_cnt)
 print(answer)
