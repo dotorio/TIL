@@ -105,3 +105,15 @@ def profile(request, username):
         'person': person,
     }
     return render(request, 'accounts/profile.html', context)
+
+@login_required
+def follow(request, user_pk):
+    me = request.user
+    you = get_user_model().objects.get(pk=user_pk)
+
+    if me != you:
+        if me in you.followers.all():
+            you.followers.remove(me)
+        else:
+            you.followers.add(me)
+    return redirect('accounts:profile', you.username)

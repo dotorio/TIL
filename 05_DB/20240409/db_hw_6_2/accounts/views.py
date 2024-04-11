@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login
@@ -93,3 +92,13 @@ def change_password(request, user_pk):
         'form': form,
     }
     return render(request, 'accounts/change_password.html', context)
+
+from django.contrib.auth import get_user_model
+
+def profile(request, username):
+    User = get_user_model()
+    person = User.objects.get(username=username)
+    context = {
+        'person' : person,
+    }
+    return render(request, 'accounts/profile.html', context)
