@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 동등 연산자를 활용한 조건문
+    if (0 == []) {
+      console.log('true?')
+    } else {
+      console.log('false?')
+    }
+    // 실행 결과 : 0과 빈 리스트가 모두 false로 암묵적 타입 변환되어서
+    // true? 가 출력된다
+
+    // 일치 연산자를 활용한 조건문
+    if ({} === false) {
+      console.log('true?')
+    } else {
+      console.log('false?')
+    }
+    // 실행 결과 : ===는 일치 연산자이기 때문에 두 피연산자가 값과 타입이 모두 같아야 한다
+    // 따라서 false? 가 출력된다
+
+    // 논리 연산자를 활용한 단축 평가
+    console.log(0 && 13)
+    // 실행 결과 : and 연산이므로 0에서 단축 평가 false가 이뤄져서 0 출력
+    console.log(0 || 13)
+    // 실행 결과 : or 연산이므로 0이 false이므로 13까지 가서 13 출력
+
+    let num = 12
+    num /= 3
+    console.log(num)
+    // 실행 결과 : 12를 3으로 나눈 값인 4가 출력된다
+    // 파이썬은 4.0이 나올 것이지만 자바스크립트는 4가 출력된다
+
+    const number = 13
+    number++
+    // 실행 결과 : const로 할당된 number는 증가연산자로 바뀔 수 없다 오류가 난다
+  </script>
+</body>
+</html>
