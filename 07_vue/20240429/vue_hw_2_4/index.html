@@ -25,12 +25,12 @@
 
     <form @submit.prevent="changeStyle">
       <label for="color">색 입력 : </label>
-      <input :value="colorType" @input="onInput">
+      <input type="text" id="color" v-model="colorType">
       <br>
       <label for="font">글꼴 입력 : </label>
-      <input :value="fontType" @input="onInput">
+      <input type="text" id="font" v-model="fontType">
       <br>
-      <button @click="changeStyle">변경!</button>
+      <button>변경!</button>
     </form>
   </div>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -52,26 +52,27 @@
       setup() {
         let colorType = ref('')
         let fontType = ref('')
-        const onInput = function (event) {
-          colorType.value = event.currentTarget.value
-          fontType.value = event.currentTarget.value
-        }
-        
-        const changeStyle = function (event) {
-          const styleObject = ref({
-            color: colorType,
-            'font-family': fontType
+        const styleObject = ref({
+          // color: '',
+          // 'font-family': ''
         })
-
+        const changeStyle = function (event) {
+          const tempObject = {
+            color: colorType.value,
+            'font-family': fontType.value
         }
-        colorType = ref('')
-        fontType = ref('')
+        styleObject.value = tempObject
+        console.log(styleObject.value)
+        colorType.value = ''
+        fontType.value = ''
+        }
 
+        
         return {
           colorType,
           fontType,
-          onInput,
-          changeStyle
+          changeStyle,
+          styleObject
         }
       }
       
