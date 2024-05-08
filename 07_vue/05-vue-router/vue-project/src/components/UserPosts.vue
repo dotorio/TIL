@@ -1,14 +1,10 @@
 <template>
   <div>
-    <p>{{ myProp.id }}</p>
-    <p>{{ myProp.name }}</p>
+    <h1>UserPosts</h1>
   </div>
 </template>
 
 <script setup>
-defineProps({
-  myProp: Object
-})
 
 </script>
 
